@@ -15,7 +15,7 @@ import java.io.IOException;
 public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 
     private final TokenService tokenService;
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
     public AutenticacaoViaTokenFilter(TokenService tokenService, UsuarioRepository usuarioRepository) {
         this.tokenService = tokenService;
@@ -49,6 +49,6 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
             return null;
         }
 
-        return token.substring(7, token.length());
+        return token.substring(7);
     }
 }
